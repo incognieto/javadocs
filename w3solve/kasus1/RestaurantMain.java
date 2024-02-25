@@ -1,0 +1,89 @@
+import java.util.Random;
+import java.util.Scanner;
+
+// Class untuk menjalankan program utama
+public class RestaurantMain {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Restaurant menu = new Restaurant();  // Membuat objek Restaurant
+
+        // Menambahkan beberapa menu makanan ke dalam restoran
+        menu.tambahMenuMakanan("Bala-Bala", 1_000, 50);
+        menu.tambahMenuMakanan("Gehu", 1_500, 12);
+        menu.tambahMenuMakanan("Tahu", 1_000, 42);
+        menu.tambahMenuMakanan("Molen", 1_500, 16);
+        menu.tambahMenuMakanan("Onde", 2_000, 50);
+        menu.tambahMenuMakanan("Tempe", 1_000, 18);
+        menu.tambahMenuMakanan("Cireng", 1_000, 23);
+        menu.tambahMenuMakanan("Combro", 2_000, 0);
+        menu.tambahMenuMakanan("Cakwe", 1_000, 15);
+        menu.tambahMenuMakanan("Pisang", 1_000, 16);
+
+        do {
+            menu.tampilMenuMakanan();  // Menampilkan menu-menu yang tersedia
+            System.out.print("(!) Mulai menambahkan pesanan? (y/n) : ");
+            String tambahPesanan = scanner.next();
+
+            if (tambahPesanan.equalsIgnoreCase("y")) {
+                System.out.print("Masukan ID Item yang akan dipesan   : ");
+                int itemId = scanner.nextInt();
+
+                System.out.print("Masukan jumlah kuantitas pemesanan   : ");
+                int quantity = scanner.nextInt();
+
+                menu.pesanMenu(itemId, quantity);  // Memanggil metode pesanMenu pada objek Restaurant
+
+                menu.tampilkanKeranjang(); // Menampilkan sementara keranjang setelah validasi
+                
+                System.out.print("(!) Ingin menambah pesanan? (y/n) : "); // Validasi apakah ingin menambah pesanan lagi
+                String tambahLagi = scanner.next();
+
+                if (!tambahLagi.equalsIgnoreCase("y")) {
+                    break;  // Keluar dari loop jika tidak ingin menambah pesanan lagi
+                }
+            } else {
+                break;  // Keluar dari loop jika tidak ingin menambah pesanan
+            }
+
+        } while (true);
+
+        System.out.print("(!) Lakukan Pembayaran? (y/n) : ");
+        String pembayaran = scanner.next();
+
+        if (pembayaran.equalsIgnoreCase("y")) {
+            System.out.println("+-----------------------------------------------------------------------------+");
+            System.out.println("|			     Informasi Pembayaran			      |");
+            System.out.println("+-----------------------------------------------------------------------------+");
+            System.out.println("|             Virtual Account berlaku 1x24jam : " + generateVirtualAccount() + "             |");
+            System.out.println("| 		Terima kasih, senang berbisnis dengan Anda!		      |");
+            System.out.println("+-----------------------------------------------------------------------------+");
+            System.out.println("|				cr : Nieto Salim Maula			      |");
+            System.out.println("+-----------------------------------------------------------------------------+");
+        } else {
+            System.out.println("+-----------------------------------------------------------------------------+");
+            System.out.println("|			     Informasi Pembayaran			      |");
+            System.out.println("+-----------------------------------------------------------------------------+");
+            System.out.println("| 				      					      |");
+            System.out.println("| 	     Maaf, karena ada kendala, saat ini pembayaran dibatalkan.	      |");
+            System.out.println("| 				      					      |");
+            System.out.println("+-----------------------------------------------------------------------------+");
+            System.out.println("|				cr : Nieto Salim Maula			      |");
+            System.out.println("+-----------------------------------------------------------------------------+");
+        }
+
+        scanner.close();
+    }
+
+    // Metode untuk menghasilkan virtual account random 16 digit
+    private static String generateVirtualAccount() {
+        Random rand = new Random();
+        StringBuilder virtualAccount = new StringBuilder();
+
+        for (int i = 0; i < 16; i++) {
+            virtualAccount.append(rand.nextInt(10));
+        }
+
+        return virtualAccount.toString();
+    }
+
+}
