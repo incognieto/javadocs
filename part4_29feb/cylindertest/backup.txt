@@ -1,0 +1,83 @@
+/**
+ * The Cylinder class models a cylinder with a radius, height, and color, extending the Circle class.
+ */
+public class Cylinder extends Circle {
+    // private instance variable, not accessible from outside this class
+    private double height;
+
+    // Constructors (overloaded)
+
+    /** Constructs a Cylinder instance with default values for radius, height, and color */
+    public Cylinder() { // 1st (default) constructor
+        super(); // Call the default constructor of the superclass Circle
+        height = 1.0;
+    }
+
+    /**
+     * Constructs a Cylinder instance with the given radius, default height, and color.
+     *
+     * @param radius The radius of the cylinder.
+     */
+    public Cylinder(double radius) { // 2nd constructor
+        super(radius); // Call the second constructor of the superclass Circle
+        height = 1.0;
+    }
+
+    /**
+     * Constructs a Cylinder instance with the given radius, height, and default color.
+     *
+     * @param radius The radius of the cylinder.
+     * @param height The height of the cylinder.
+     */
+    public Cylinder(double radius, double height) { // 3rd constructor
+        super(radius); // Call the second constructor of the superclass Circle
+        this.height = height;
+    }
+
+    /**
+     * Constructs a Cylinder instance with the given radius, height, and color.
+     *
+     * @param radius The radius of the cylinder.
+     * @param height The height of the cylinder.
+     * @param color  The color of the cylinder.
+     */
+    public Cylinder(double radius, double height, String color) { // 4th constructor
+        super(radius, color); // Call the third constructor of the superclass Circle
+        this.height = height;
+    }
+
+    /** Returns the height of the cylinder */
+    public double getHeight() {
+        return height;
+    }
+
+    /**
+     * Sets the height of the cylinder.
+     *
+     * @param height The new height value.
+     */
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    /**
+     * Overrides the getArea() method in the superclass Circle to compute the surface area of the cylinder.
+     *
+     * @return The surface area of the cylinder.
+     */
+    @Override
+    public double getArea() {
+        // Surface area of the cylinder = 2π×radius×height + 2×base-area
+        return 2 * Math.PI * getRadius() * height + 2 * super.getArea(); // Invoke the getArea() of the superclass Circle using super.getArea()
+    }
+
+    /**
+     * Computes the volume of the cylinder.
+     *
+     * @return The volume of the cylinder.
+     */
+    public double getVolume() {
+        // Volume of the cylinder = base-area × height
+        return super.getArea() * height; // Invoke the overridden getArea() method
+    }
+}
