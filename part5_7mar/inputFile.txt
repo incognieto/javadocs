@@ -1,0 +1,15 @@
+Manager
+StoreJogjapLaza
+Uchiha Shisui
+8000.00
+50.0
+10.0
+20000.0
+70000.0
+Sales Associate
+StoreBuanaToserba
+Uchiha Madara
+20.0
+4000.0
+1700.0
+20.0

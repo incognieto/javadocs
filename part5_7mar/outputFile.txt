@@ -1,0 +1,25 @@
+******************************************************
+Number of employees working as MANAGER are: 1
+******************************************************
+1. Manager Details:
+Store Details: StoreJogjapLaza
+Employee Name: Uchiha Shisui
+Base Pay: $8000.0
+Number of Hours worked: 50.0hrs
+Payment Rate per hour: $10.0/hr
+Total Sales in store: $70000.0
+Sales done: $20000.0
+Percentage of sales done: 28.57%
+Gross Payment: $9350.0
+Remaining store revenue: $50341.5
+******************************************************
+Number of employees working as SALES ASSOCIATES are: 1
+******************************************************
+Store Details: StoreBuanaToserba
+Employee Name: Uchiha Madara
+Base Pay: $20.0
+Number of Hours worked: 4000.0hrs
+Payment Rate per hour: $1700.0/hr
+Sales Rate: 2000.0%
+Total commission: $2.0
+Gross Payment: $6800022.0
